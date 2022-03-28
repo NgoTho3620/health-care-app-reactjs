@@ -1,0 +1,178 @@
+.home-header-container {
+    height: 60px;
+    width: 100%;
+    padding: 5px 135px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: white;
+
+    .home-header-content {
+        width: 100%;
+        height: 100%;
+        display: flex;
+
+        .left-content {
+            width: 25%;
+            display: flex;
+            align-items: center;
+
+            .header-logo {
+                img {
+                    height: 53px;
+                    width: 226px;
+                    object-fit: cover;
+                }
+                height: 100%;
+                width: 100%;
+                background-size: 50%;
+                cursor: pointer;
+            }
+            i {
+                font-size: 25px;
+                color: grey;
+                cursor: pointer;
+                margin-right: 5px;
+            }
+        }
+        .center-content {
+            width: 50%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .child-content {
+                cursor: pointer;
+
+                .subs-title {
+                    font-weight: 400;
+                    font-size: 12px;
+                }
+
+                &:hover {
+                    color: #5fb8e0;
+                }
+            }
+        }
+        .right-content {
+            width: 25%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            .support {
+                padding-right: 50px;
+                display: flex;
+                cursor: pointer;
+                align-items: center;
+
+                i {
+                    font-size: 15px;
+                    margin-right: 5px;
+                }
+            }
+
+            .language-vi {
+                cursor: pointer;
+                opacity: 0.4;
+
+                &.active {
+                    opacity: 1;
+                    color: orange;
+                }
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+
+            .language-en {
+                margin: 0 10px;
+                opacity: 0.4;
+                cursor: pointer;
+
+                &.active {
+                    opacity: 1;
+                    color: blue;
+                }
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+.home-header-banner {
+    background-image: url('../../assets/banner_1.png');
+    height: 560px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    opacity: 0.9;
+
+    .content-left {
+        width: 50%;
+        padding-top: 15px;
+
+        .title1 {
+            text-align: center;
+            font-size: 30px;
+            text-shadow: 1px 1px 1px #333;
+            margin-bottom: 5px;
+            color: #3a3c41;
+            margin-top: 130px;
+        }
+        .title2 {
+            text-align: center;
+            font-size: 30px;
+            text-shadow: 1px 1px 1px #333;
+            color: #3a3c41;
+            margin-bottom: 15px;
+        }
+        .search {
+            width: fit-content;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            padding: 10px;
+            border-radius: 25px;
+            background: #5fb8e0;
+            i {
+                margin: 0 5px;
+            }
+            input {
+                height: 30px;
+                width: 360px;
+                background: transparent;
+                border: none;
+                outline: none;
+            }
+        }
+
+        button {
+            display: block;
+            margin: 0 auto;
+            padding: 10px 20px;
+            border: none;
+            outline: none;
+            background-color: #f15b5a;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            margin-top: 30px;
+            border-radius: 2px;
+
+            &:hover {
+                background-color: #333;
+            }
+        }
+    }
+
+    .content-right {
+        width: 50%;
+    }
+}

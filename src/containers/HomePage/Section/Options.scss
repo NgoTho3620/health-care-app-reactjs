@@ -1,0 +1,75 @@
+.option-container {
+    height: 250px;
+    width: 100%;
+    display: flex;
+    padding: 10px 120px;
+
+    .option-title {
+        width: 33.33%;
+
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #3a3c41;
+        }
+        .sub-title {
+            font-size: 15px;
+            text-align: center;
+        }
+        button {
+            display: block;
+            margin: 0 auto;
+            padding: 10px 20px;
+            border: none;
+            outline: none;
+            background-color: #f15b5a;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            margin-top: 30px;
+            border-radius: 2px;
+
+            &:hover {
+                background-color: #333;
+            }
+        }
+    }
+
+    .option-detail {
+        width: 66.67%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        .option-child {
+            width: 33.33%;
+            text-align: center;
+            cursor: pointer;
+
+            .icon-child {
+                background: white;
+                -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, 50%);
+                box-shadow: 0px 1px 2px rgba(0, 0, 0, 50%);
+                width: 48px;
+                padding: 13px;
+                border-radius: 50%;
+                text-align: center;
+                margin: 0 auto;
+                i {
+                    font-size: 22px;
+                    color: #49bce2;
+                }
+            }
+            .text-child {
+                font-size: 16px;
+                font-weight: 600;
+                margin-top: 5px;
+                color: #3a3c41;
+
+                &:hover {
+                    color: #49bce2;
+                }
+            }
+        }
+    }
+}

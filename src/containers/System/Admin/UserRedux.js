@@ -62,8 +62,7 @@ class UserRedux extends Component {
             let arrPosition = this.props.positionRedux;
             this.setState({
                 positionArr: arrPosition,
-                position:
-                    arrPosition && arrPosition.length > 0 ? arrPosition[0].keyMap : '',
+                position: arrPosition && arrPosition.length > 0 ? arrPosition[0].keyMap : '',
             });
         }
         if (prevProps.roleRedux !== this.props.roleRedux) {
@@ -87,8 +86,7 @@ class UserRedux extends Component {
                 phoneNumber: '',
                 address: '',
                 gender: arrGenders && arrGenders.length > 0 ? arrGenders[0].keyMap : '',
-                position:
-                    arrPosition && arrPosition.length > 0 ? arrPosition[0].keyMap : '',
+                position: arrPosition && arrPosition.length > 0 ? arrPosition[0].keyMap : '',
                 role: arrRoles && arrRoles.length > 0 ? arrRoles[0].keyMap : '',
                 avatar: '',
                 action: CRUD_ACTIONS.CREATE,
@@ -167,14 +165,7 @@ class UserRedux extends Component {
 
     checkValidateInput = () => {
         let isValid = true;
-        let arrCheck = [
-            'email',
-            'password',
-            'firstName',
-            'lastName',
-            'phoneNumber',
-            'address',
-        ];
+        let arrCheck = ['email', 'password', 'firstName', 'lastName', 'phoneNumber', 'address'];
         for (let i = 0; i < arrCheck.length; i++) {
             if (!this.state[arrCheck[i]]) {
                 isValid = false;
@@ -189,7 +180,7 @@ class UserRedux extends Component {
     handleEditUserFromParent = (user) => {
         let imageBase64 = '';
         if (user.image) {
-            imageBase64 = new Buffer(user.image, 'base64').toString('binary');
+            imageBase64 = Buffer.from(user.image, 'base64').toString('binary');
         }
 
         this.setState({
@@ -412,9 +403,7 @@ class UserRedux extends Component {
                             </div>
                             <div className="col-12 mb-5">
                                 <TableManageUser
-                                    handleEditUserFromParent={
-                                        this.handleEditUserFromParent
-                                    }
+                                    handleEditUserFromParent={this.handleEditUserFromParent}
                                     action={this.state.action}
                                 />
                             </div>

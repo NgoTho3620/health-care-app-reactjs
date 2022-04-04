@@ -2,8 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './ManagePatient.scss';
 import DatePicker from '../../../components/Input/DatePicker';
-import { getAllPatientForDoctor } from '../../../services/userSevice';
+import { getAllPatientForDoctor, postSendRemedy } from '../../../services/userSevice';
 import moment from 'moment';
+import { LANGUAGES } from '../../../utils';
+import RemedyModal from './RemedyModal';
+import { toast } from 'react-toastify';
+import LoadingOverlay from 'react-loading-overlay';
 
 class ManagePatient extends Component {
     constructor(props) {
@@ -11,17 +15,20 @@ class ManagePatient extends Component {
         this.state = {
             currentDate: new moment(new Date()).startOf('day').valueOf(),
             dataPatient: [],
+            isOpenRemedyModal: false,
+            dataModal: {},
+            isShowLoading: false,
         };
     }
 
     async componentDidMount() {
+        this.getDataPatient();
+    }
+
+    getDataPatient = async () => {
         let { user } = this.props;
         let { currentDate } = this.state;
         let formattedDate = new Date(currentDate).getTime();
-        this.getDataPatient(user, formattedDate);
-    }
-
-    getDataPatient = async (user, formattedDate) => {
         let res = await getAllPatientForDoctor({
             doctorId: user.id,
             date: formattedDate,
@@ -40,79 +47,144 @@ class ManagePatient extends Component {
             {
                 currentDate: date[0],
             },
-            () => {
-                let { user } = this.props;
-                let { currentDate } = this.state;
-                let formattedDate = new Date(currentDate).getTime();
-                this.getDataPatient(user, formattedDate);
+            async () => {
+                await this.getDataPatient();
             }
         );
     };
 
-    handleBtnConfirm = () => {};
+    handleBtnConfirm = (item) => {
+        let data = {
+            doctorId: item.doctorId,
+            patientId: item.patientId,
+            email: item.patientData.email,
+            timeType: item.timeType,
+            patientName: item.patientData.firstName,
+        };
+        this.setState({
+            isOpenRemedyModal: true,
+            dataModal: data,
+        });
+    };
 
-    handleBtnRemedy = () => {};
+    closeRemedyModal = () => {
+        this.setState({
+            isOpenRemedyModal: false,
+            dataModal: {},
+        });
+    };
+
+    sendRemedy = async (dataChild) => {
+        let { dataModal } = this.state;
+        this.setState({
+            isShowLoading: true,
+        });
+        let res = await postSendRemedy({
+            email: dataChild.email,
+            imgBase64: dataChild.imgBase64,
+            doctorId: dataModal.doctorId,
+            patientId: dataModal.patientId,
+            timeType: dataModal.timeType,
+            language: this.props.language,
+            patientName: dataModal.patientName,
+        });
+
+        if (res && res.errCode === 0) {
+            this.setState({
+                isShowLoading: false,
+            });
+            toast.success('Send Remedy successfully');
+            this.closeRemedyModal();
+            await this.getDataPatient();
+        } else {
+            this.setState({
+                isShowLoading: false,
+            });
+            toast.error('Something wrongs...');
+            console.log('Error sending', res);
+        }
+    };
 
     render() {
-        console.log('ngotho', this.state);
-        let { dataPatient } = this.state;
+        let { dataPatient, isOpenRemedyModal, dataModal } = this.state;
+        let { language } = this.props;
         return (
-            <div className="manage-patient-container">
-                <div className="m-p-title">Quản lý bệnh nhân khám bệnh</div>
-                <div className="manage-patient-body row">
-                    <div className="col-4 from-group">
-                        <label htmlFor="">Chọn ngày khám</label>
-                        <DatePicker
-                            onChange={this.handleOnChangeDatePicker}
-                            className="form-control"
-                            value={this.state.currentDate}
-                        />
-                    </div>
-                    <div className="col-12 table-manage-patient">
-                        <table style={{ width: '100%' }}>
-                            <tbody>
-                                <tr>
-                                    <th>STT</th>
-                                    <th>Thời gian</th>
-                                    <th>Họ và tên</th>
-                                    <th>Địa chỉ</th>
-                                    <th>Giới tính</th>
-                                    <th>Action</th>
-                                </tr>
-                                {dataPatient && dataPatient.length > 0 ? (
-                                    dataPatient.map((item, index) => {
-                                        return (
-                                            <tr key={index}>
-                                                <td>{index + 1}</td>
-                                                <td>{item.timeTypeDataPatient.valueVI}</td>
-                                                <td>{item.patientData.firstName}</td>
-                                                <td>{item.patientData.address}</td>
-                                                <td>{item.patientData.genderData.valueVI}</td>
-                                                <td>
-                                                    <button
-                                                        className="mp-btn-confirm"
-                                                        onClick={() => this.handleBtnConfirm()}
-                                                    >
-                                                        Xác nhận
-                                                    </button>
-                                                    <button
-                                                        className="mp-btn-remedy"
-                                                        onClick={() => this.handleBtnRemedy()}
-                                                    >
-                                                        Gửi hóa đơn
-                                                    </button>
+            <>
+                <LoadingOverlay active={this.state.isShowLoading} spinner text="Loading...">
+                    <div className="manage-patient-container">
+                        <div className="m-p-title">Quản lý bệnh nhân khám bệnh</div>
+                        <div className="manage-patient-body row">
+                            <div className="col-4 from-group">
+                                <label htmlFor="">Chọn ngày khám</label>
+                                <DatePicker
+                                    onChange={this.handleOnChangeDatePicker}
+                                    className="form-control"
+                                    value={this.state.currentDate}
+                                />
+                            </div>
+                            <div className="col-12 table-manage-patient">
+                                <table style={{ width: '100%' }}>
+                                    <tbody>
+                                        <tr>
+                                            <th>STT</th>
+                                            <th>Thời gian</th>
+                                            <th>Họ và tên</th>
+                                            <th>Địa chỉ</th>
+                                            <th>Giới tính</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                        {dataPatient && dataPatient.length > 0 ? (
+                                            dataPatient.map((item, index) => {
+                                                let time =
+                                                    language === LANGUAGES.VI
+                                                        ? item.timeTypeDataPatient.valueVI
+                                                        : item.timeTypeDataPatient.valueEN;
+
+                                                let gender =
+                                                    language === LANGUAGES.VI
+                                                        ? item.patientData.genderData.valueVI
+                                                        : item.patientData.genderData.valueEN;
+
+                                                return (
+                                                    <tr key={index}>
+                                                        <td>{index + 1}</td>
+                                                        <td>{time}</td>
+                                                        <td>{item.patientData.firstName}</td>
+                                                        <td>{item.patientData.address}</td>
+                                                        <td>{gender}</td>
+                                                        <td>
+                                                            <button
+                                                                className="mp-btn-confirm"
+                                                                onClick={() =>
+                                                                    this.handleBtnConfirm(item)
+                                                                }
+                                                            >
+                                                                Xác nhận
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                );
+                                            })
+                                        ) : (
+                                            <tr>
+                                                <td colSpan="6" style={{ textAlign: 'center' }}>
+                                                    No data
                                                 </td>
                                             </tr>
-                                        );
-                                    })
-                                ) : (
-                                    <tr>No data</tr>
-                                )}
-                            </tbody>
-                        </table>
+                                        )}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
+                    <RemedyModal
+                        isOpenModal={isOpenRemedyModal}
+                        dataModal={dataModal}
+                        closeRemedyModal={this.closeRemedyModal}
+                        sendRemedy={this.sendRemedy}
+                    />
+                </LoadingOverlay>
+            </>
         );
     }
 }

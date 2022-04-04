@@ -51,10 +51,9 @@ class OutStandingDoctor extends Component {
                                 arrDoctors.map((item, index) => {
                                     let imageBase64 = '';
                                     if (item.image) {
-                                        imageBase64 = new Buffer(
-                                            item.image,
-                                            'base64'
-                                        ).toString('binary');
+                                        imageBase64 = Buffer.from(item.image, 'base64').toString(
+                                            'binary'
+                                        );
                                     }
                                     let nameVi = `${item.positionData.valueVI}, ${item.lastName} ${item.firstName}`;
                                     let nameEn = `${item.positionData.valueEN}, ${item.firstName} ${item.lastName}`;
@@ -62,9 +61,7 @@ class OutStandingDoctor extends Component {
                                         <div
                                             className="section-customize"
                                             key={index}
-                                            onClick={() =>
-                                                this.handleViewDetailDoctor(item)
-                                            }
+                                            onClick={() => this.handleViewDetailDoctor(item)}
                                         >
                                             <div className="outer-bg">
                                                 <div
@@ -76,9 +73,7 @@ class OutStandingDoctor extends Component {
                                             </div>
                                             <div className="position text-center">
                                                 <div>
-                                                    {language === LANGUAGES.VI
-                                                        ? nameVi
-                                                        : nameEn}
+                                                    {language === LANGUAGES.VI ? nameVi : nameEn}
                                                 </div>
                                                 <div>Tiêu hóa, Viêm gan</div>
                                             </div>
@@ -107,6 +102,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default withRouter(
-    connect(mapStateToProps, mapDispatchToProps)(OutStandingDoctor)
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(OutStandingDoctor));

@@ -1,0 +1,41 @@
+.detail-handbook-container {
+    background: #eee;
+
+    .detail-banner {
+        background: #fff;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        .description-handbook {
+            padding: 0 200px;
+            padding-top: 10px;
+            width: 100%;
+            background-image: linear-gradient(
+                rgba(255, 255, 255, 0.8),
+                rgba(255, 255, 255, 0.9),
+                rgba(255, 255, 255, 1)
+            );
+
+            .title-handbook {
+                .title-name {
+                    text-align: center;
+                    font-weight: 600;
+                    font-size: 1.5rem;
+                    margin: 20px 0;
+                }
+                .author-name {
+                    color: #67c9e0;
+                }
+                .time {
+                    display: flex;
+                    justify-content: flex-start;
+                    margin-bottom: 30px;
+
+                    .create-at {
+                        margin-right: 30px;
+                    }
+                }
+            }
+        }
+    }
+}

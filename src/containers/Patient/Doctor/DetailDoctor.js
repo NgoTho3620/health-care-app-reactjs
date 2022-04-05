@@ -45,7 +45,7 @@ class DetailDoctor extends Component {
 
         let currentURL =
             +process.env.REACT_APP_IS_LOCALHOST === 1
-                ? 'https://phimmoichill.net/info/hen-ho-chon-cong-so-pm9930'
+                ? 'https://phimmoichill.net/info/xac-song-phan-11-pm8952'
                 : window.location.href;
 
         return (

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './DetailHandbook.scss';
 import HomeHeader from '../../HomePage/HomeHeader';
+import HomeFooter from '../../HomePage/HomeFooter';
 import { getAllDetailHandbookById } from '../../../services/userSevice';
 import _ from 'lodash';
 import { LANGUAGES } from '../../../utils';
@@ -77,11 +78,13 @@ class DetailHandbook extends Component {
                                     dangerouslySetInnerHTML={{
                                         __html: dataDetailHandbook.descriptionHTML,
                                     }}
+                                    className="detail-description"
                                 ></div>
                             )}
                         </div>
                     </div>
                 </div>
+                <HomeFooter />
             </>
         );
     }

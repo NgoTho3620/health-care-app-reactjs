@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import HomeHeader from '../../HomePage/HomeHeader';
+import HomeFooter from '../../HomePage/HomeFooter';
 import './DetailDoctor.scss';
 import { LANGUAGES } from '../../../utils';
 import { getDetailInfoDoctor } from '../../../services/userSevice';
@@ -45,7 +46,7 @@ class DetailDoctor extends Component {
 
         let currentURL =
             +process.env.REACT_APP_IS_LOCALHOST === 1
-                ? 'https://phimmoichill.net/info/xac-song-phan-11-pm8952'
+                ? 'https://nvt-netflix.web.app/'
                 : window.location.href;
 
         return (
@@ -97,6 +98,7 @@ class DetailDoctor extends Component {
                     <div className="comment-doctor">
                         <Comment dataHref={currentURL} width={'100%'} />
                     </div>
+                    <HomeFooter />
                 </div>
             </>
         );

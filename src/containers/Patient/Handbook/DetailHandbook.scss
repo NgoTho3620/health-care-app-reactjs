@@ -7,7 +7,7 @@
         background-position: center center;
         background-size: cover;
         .description-handbook {
-            padding: 0 200px;
+            padding: 0 250px;
             padding-top: 10px;
             width: 100%;
             background-image: linear-gradient(
@@ -18,10 +18,10 @@
 
             .title-handbook {
                 .title-name {
-                    text-align: center;
+                    text-align: left;
                     font-weight: 600;
                     font-size: 1.5rem;
-                    margin: 20px 0;
+                    margin: 15px 0;
                 }
                 .author-name {
                     color: #67c9e0;
@@ -34,6 +34,19 @@
                     .create-at {
                         margin-right: 30px;
                     }
+                }
+            }
+            .detail-description {
+                font-size: 16px;
+                img {
+                    pointer-events: none;
+                    width: 100%;
+                    height: 100%;
+                }
+                h1,
+                h2,
+                h3 {
+                    font-size: 17px;
                 }
             }
         }

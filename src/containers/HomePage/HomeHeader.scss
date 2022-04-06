@@ -65,6 +65,9 @@
                 display: flex;
                 cursor: pointer;
                 align-items: center;
+                &:hover {
+                    color: #67c9e0;
+                }
 
                 i {
                     font-size: 15px;
@@ -75,10 +78,11 @@
             .language-vi {
                 cursor: pointer;
                 opacity: 0.4;
+                font-weight: 600;
 
                 &.active {
                     opacity: 1;
-                    color: orange;
+                    color: #f15b5a;
                 }
 
                 &:hover {
@@ -87,13 +91,14 @@
             }
 
             .language-en {
+                font-weight: 600;
                 margin: 0 10px;
                 opacity: 0.4;
                 cursor: pointer;
 
                 &.active {
                     opacity: 1;
-                    color: blue;
+                    color: #67c9e0;
                 }
 
                 &:hover {

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './DetailClinic.scss';
 import HomeHeader from '../../HomePage/HomeHeader';
+import HomeFooter from '../../HomePage/HomeFooter';
 import DoctorSchedule from '../Doctor/DoctorSchedule';
 import DoctorMoreInfo from '../Doctor/DoctorMoreInfo';
 import ProfileDoctor from '../Doctor/ProfileDoctor';
@@ -104,6 +105,7 @@ class DetailClinic extends Component {
                             );
                         })}
                 </div>
+                <HomeFooter />
             </>
         );
     }

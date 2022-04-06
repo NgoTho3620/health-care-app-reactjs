@@ -16,7 +16,6 @@ class Handbook extends Component {
 
     async componentDidMount() {
         let res = await getAllHandbook();
-        console.log('thongo check res', res);
         if (res && res.errCode === 0) {
             this.setState({ dataHandbook: res.data ? res.data : [] });
         }

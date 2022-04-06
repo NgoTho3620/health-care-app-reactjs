@@ -1,0 +1,89 @@
+.home-footer-container {
+    padding: 0 135px;
+    margin: 10px 0;
+    .footer_wrapper {
+        display: flex;
+
+        .left-footer {
+            width: 40%;
+
+            .brand-logo {
+                img {
+                    height: 53px;
+                    width: 226px;
+                    object-fit: cover;
+                }
+                // height: 100%;
+                // width: 100%;
+                margin-bottom: 15px;
+                background-size: 50%;
+                cursor: pointer;
+            }
+
+            .name-company {
+                font-weight: 600;
+                margin-bottom: 5px;
+            }
+        }
+
+        .center-footer {
+            width: 30%;
+
+            ul {
+                li {
+                    list-style: none;
+                    color: #67c9e0;
+                    cursor: pointer;
+                    margin-bottom: 5px;
+                    &:hover {
+                        color: #f15b5a;
+                    }
+                }
+            }
+        }
+
+        .right-footer {
+            width: 30%;
+
+            .branch {
+                margin-bottom: 15px;
+
+                .name-branch {
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}
+.more-info-need {
+    padding: 0 135px;
+    width: 100%;
+    background-color: #006e6f;
+    text-align: left;
+    color: #fff;
+    height: 50px;
+    line-height: 50px;
+    margin-top: 15px;
+
+    .more-info-link {
+        color: #fff04b;
+    }
+}
+.copyright {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 135px;
+    width: 100%;
+    background-color: #67c9e0;
+    text-align: left;
+    color: #fff;
+    height: 70px;
+    .social {
+        cursor: pointer;
+        font-size: 1.8rem;
+        i {
+            margin-left: 10px;
+        }
+    }
+}

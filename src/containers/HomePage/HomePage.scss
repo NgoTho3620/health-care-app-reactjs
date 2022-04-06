@@ -14,7 +14,7 @@
 .slick-prev:before,
 .slick-next:before {
     font-family: FontAwesome !important;
-    color: red !important;
+    color: black !important;
     // content: '\e257' !important;
 }
 
@@ -79,7 +79,7 @@
                 }
 
                 &.section-handbook {
-                    background-image: url('../../assets/HandBook/tram-cam-sau-sinh.jpg');
+                    // background-image: url('../../assets/HandBook/tram-cam-sau-sinh.jpg');
                 }
             }
         }

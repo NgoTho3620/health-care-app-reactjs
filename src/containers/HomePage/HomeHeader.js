@@ -28,11 +28,7 @@ class HomeHeader extends Component {
                         <div className="left-content">
                             <i className="fas fa-bars"></i>
                             <div className="header-logo">
-                                <img
-                                    src={img}
-                                    alt=""
-                                    onClick={() => this.returnToHome()}
-                                />
+                                <img src={img} alt="" onClick={() => this.returnToHome()} />
                             </div>
                         </div>
                         <div className="center-content">
@@ -84,25 +80,17 @@ class HomeHeader extends Component {
                             </div>
                             <div
                                 className={
-                                    language === LANGUAGES.VI
-                                        ? 'language-vi active'
-                                        : 'language-vi'
+                                    language === LANGUAGES.VI ? 'language-vi active' : 'language-vi'
                                 }
                             >
-                                <span onClick={() => this.changeLanguage(LANGUAGES.VI)}>
-                                    VN
-                                </span>
+                                <span onClick={() => this.changeLanguage(LANGUAGES.VI)}>VN</span>
                             </div>
                             <div
                                 className={
-                                    language === LANGUAGES.EN
-                                        ? 'language-en active'
-                                        : 'language-en'
+                                    language === LANGUAGES.EN ? 'language-en active' : 'language-en'
                                 }
                             >
-                                <span onClick={() => this.changeLanguage(LANGUAGES.EN)}>
-                                    EN
-                                </span>
+                                <span onClick={() => this.changeLanguage(LANGUAGES.EN)}>EN</span>
                             </div>
                         </div>
                     </div>
@@ -118,10 +106,7 @@ class HomeHeader extends Component {
                             </div>
                             <div className="search">
                                 <i className="fas fa-search"></i>
-                                <input
-                                    type="text"
-                                    placeholder="Tìm chuyên khoa khám bệnh"
-                                />
+                                <input type="text" placeholder="Tìm chuyên khoa khám bệnh" />
                             </div>
                             <button>
                                 <FormattedMessage id="banner.booking" />

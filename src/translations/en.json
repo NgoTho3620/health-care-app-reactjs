@@ -73,7 +73,8 @@
         "role": "Role",
         "image": "Avatar",
         "save": "Save user",
-        "edit": "Save changes"
+        "edit": "Save changes",
+        "manage-user": "Manage User"
     },
     "homepage": {
         "outstanding-doctor": "Last week's outstanding doctors",

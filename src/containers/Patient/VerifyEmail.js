@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import './VerifyEmail.scss';
 import { postVerifyBookAppointment } from '../../services/userSevice';
 import HomeHeader from '../HomePage/HomeHeader';
+import HomeFooter from '../HomePage/HomeFooter';
 
 class VerifyEmail extends Component {
     constructor(props) {
@@ -22,8 +23,6 @@ class VerifyEmail extends Component {
                 token: token,
                 doctorId: doctorId,
             });
-
-            console.log(token, doctorId);
 
             if (res && res.errCode === 0) {
                 this.setState({
@@ -79,6 +78,7 @@ class VerifyEmail extends Component {
                         </div>
                     )}
                 </div>
+                <HomeFooter />
             </>
         );
     }

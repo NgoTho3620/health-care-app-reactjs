@@ -72,7 +72,8 @@
         "role": "Vai trò",
         "image": "Ảnh đại diện",
         "save": "Lưu người dùng",
-        "edit": "Lưu thay đổi"
+        "edit": "Lưu thay đổi",
+        "manage-user": "Quản lý người dùng"
     },
     "homepage": {
         "outstanding-doctor": "Bác sĩ nổi bật tuần qua",

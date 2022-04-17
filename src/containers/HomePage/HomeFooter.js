@@ -4,8 +4,14 @@ import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
 import img from '../../assets/healthcare-logo.png';
 import './HomeFooter.scss';
+import { withRouter } from 'react-router';
 
 class HomeFooter extends Component {
+    returnToHome = () => {
+        if (this.props.history) {
+            this.props.history.push(`/home`);
+        }
+    };
     render() {
         return (
             <>
@@ -18,10 +24,6 @@ class HomeFooter extends Component {
                     </p>
                 </div>
                 <div className="home-footer-container">
-                    {/* <p>
-                    &copy; 2022 HEALTHCARE Company. <Link href="#">More information</Link>
-                </p> */}
-
                     <div className="footer_wrapper">
                         <div className="left-footer">
                             <div className="brand-logo">
@@ -100,4 +102,4 @@ const mapDispatchToProps = (dispatch) => {
     return {};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeFooter);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HomeFooter));

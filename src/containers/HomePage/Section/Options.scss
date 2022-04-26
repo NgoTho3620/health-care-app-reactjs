@@ -1,11 +1,30 @@
+@import '../../../styles/common.scss';
+
 .option-container {
     height: 250px;
     width: 100%;
     display: flex;
     padding: 10px 120px;
+    @include mobile {
+        padding: 0;
+        flex-direction: column;
+        height: 450px;
+    }
+    @include tablet {
+        padding: 0 30px;
+        margin-bottom: 10px;
+    }
+    @include desktop {
+        margin-bottom: 50px;
+        padding: 0 80px;
+    }
 
     .option-title {
         width: 33.33%;
+        @include mobile {
+            width: 100%;
+            margin-bottom: 10px;
+        }
 
         .title {
             font-size: 28px;
@@ -40,6 +59,9 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
+        @include mobile {
+            width: 100%;
+        }
 
         .option-child {
             width: 33.33%;

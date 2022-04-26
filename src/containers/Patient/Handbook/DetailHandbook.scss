@@ -1,3 +1,5 @@
+@import '../../../styles/common.scss';
+
 .detail-handbook-container {
     background: #eee;
 
@@ -15,6 +17,15 @@
                 rgba(255, 255, 255, 0.9),
                 rgba(255, 255, 255, 1)
             );
+            @include mobile {
+                padding: 0 5px;
+            }
+            @include tablet {
+                padding: 0 30px;
+            }
+            @include desktop {
+                padding: 0 80px;
+            }
 
             .title-handbook {
                 .title-name {

@@ -8,6 +8,24 @@
     color: $common-text-color;
     height: 40px;
     position: relative;
+    .header-tabs-container {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        .header-bars {
+            margin-left: 30px;
+            @include desktop {
+                display: none;
+            }
+            @include lgDesktop {
+                display: none;
+            }
+            i {
+                font-size: 16px;
+                line-height: 38px;
+            }
+        }
+    }
 
     .languages {
         .welcome {

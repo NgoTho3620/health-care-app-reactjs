@@ -1,3 +1,5 @@
+@import '../../styles/common.scss';
+
 .slick-prev {
     left: -10px !important;
     z-index: 99 !important;
@@ -5,6 +7,12 @@
     width: 40px !important;
     background: #fff !important;
     border: 2px solid #d7d7d7 !important;
+    @include mobile {
+        height: 30px !important;
+        width: 30px !important;
+        left: 0px !important;
+        top: 50px !important;
+    }
 
     &:hover {
         background: #e0dede !important;
@@ -25,6 +33,12 @@
     width: 40px !important;
     background: #fff !important;
     border: 2px solid #d7d7d7 !important;
+    @include mobile {
+        height: 30px !important;
+        width: 30px !important;
+        right: 0 !important;
+        top: 50px !important;
+    }
 
     &:hover {
         background: #e0dede !important;
@@ -57,6 +71,14 @@
             .bg-image {
                 width: 278px;
                 height: 150px;
+                @include mobile {
+                    width: 130px;
+                    height: 90px;
+                }
+                @include tablet {
+                    width: 220px;
+                    height: 120px;
+                }
 
                 background-position: center center;
                 background-repeat: no-repeat;
@@ -88,11 +110,23 @@
 
 .section-share {
     height: 330px;
+    @include mobile {
+        height: 250px;
+    }
 
     .section-container {
         margin: 0 160px;
         display: flex;
         flex-direction: column;
+        @include mobile {
+            margin: 0;
+        }
+        @include tablet {
+            margin: 0 30px;
+        }
+        @include desktop {
+            margin: 0 80px;
+        }
 
         .section-header {
             height: 60px;
@@ -123,6 +157,9 @@
 }
 
 .section-outstanding-doctor {
+    @include mobile {
+        height: 280px;
+    }
     .outer-bg {
         display: flex;
         justify-content: center;
@@ -140,6 +177,16 @@
 
 .section-about {
     padding: 0 150px;
+    @include mobile {
+        padding: 0;
+        margin-bottom: 55px;
+    }
+    @include tablet {
+        padding: 0 30px;
+    }
+    @include desktop {
+        padding: 0 80px;
+    }
 
     .section-about-header {
         padding: 20px 10px;
@@ -151,12 +198,21 @@
         display: flex;
         gap: 15px;
         width: 100%;
+        @include mobile {
+            flex-direction: column;
+        }
 
         .content-left {
             width: 50%;
+            @include mobile {
+                width: 100%;
+            }
         }
         .content-right {
             width: 50%;
+            @include mobile {
+                width: 100%;
+            }
             p {
                 text-align: justify;
                 font-style: italic;

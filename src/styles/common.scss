@@ -1,4 +1,4 @@
-@import "variables";
+@import 'variables';
 
 .text-center {
     text-align: center !important;
@@ -14,4 +14,33 @@
 
 .text-red {
     color: $common-red !important;
+}
+
+$mobile-width: 480px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+$lgDesktop-width: 1170px;
+
+@mixin mobile {
+    @media (max-width: #{$tablet-width - 1px}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: #{$desktop-width}) and (max-width: #{$lgDesktop-width - 1px}) {
+        @content;
+    }
+}
+
+@mixin lgDesktop {
+    @media (min-width: #{$lgDesktop-width}) {
+        @content;
+    }
 }

@@ -1,3 +1,5 @@
+@import '../../../styles/styles.scss';
+
 .detail-clinic-container {
     background: #eee;
 
@@ -15,6 +17,15 @@
                 rgba(255, 255, 255, 0.9),
                 rgba(255, 255, 255, 1)
             );
+            @include mobile {
+                padding: 0 5px;
+            }
+            @include tablet {
+                padding: 0 30px;
+            }
+            @include desktop {
+                padding: 0 80px;
+            }
 
             .clinic-name {
                 font-size: 20px;
@@ -32,15 +43,45 @@
         box-shadow: 0 1px 6px rgba(32, 33, 36, 0.3);
         border-radius: 8px;
 
+        @include mobile {
+            margin: 30px 0 !important;
+            flex-direction: column;
+        }
+        @include tablet {
+            flex-direction: column;
+            margin: 20px 30px !important;
+        }
+        @include desktop {
+            margin: 20px 80px !important;
+        }
+
         .dt-content-left {
             padding: 10px 140px 10px 10px;
             width: 50%;
             border-right: 1px solid #ddd;
+
+            @include mobile {
+                width: 100%;
+                padding: 0;
+            }
+            @include tablet {
+                width: 100%;
+                padding: 0 30px;
+            }
         }
 
         .dt-content-right {
             width: 50%;
             padding: 10px;
+
+            @include mobile {
+                width: 100%;
+                padding: 0 5px;
+            }
+            @include tablet {
+                width: 100%;
+                padding: 0 30px;
+            }
 
             .doctor-schedule {
                 .doctor-schedule-container {

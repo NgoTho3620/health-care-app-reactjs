@@ -1,3 +1,5 @@
+@import '../../styles/common.scss';
+
 .home-header-container {
     height: 60px;
     width: 100%;
@@ -6,11 +8,29 @@
     top: 0;
     z-index: 100;
     background: white;
+    @include tablet {
+        padding: 0 30px;
+    }
+    @include mobile {
+        padding: 0;
+    }
+    @include desktop {
+        padding: 0 80px;
+    }
 
     .home-header-content {
         width: 100%;
         height: 100%;
         display: flex;
+        @include tablet {
+            justify-content: space-between;
+        }
+        @include desktop {
+            justify-content: space-between;
+        }
+        @include mobile {
+            justify-content: space-between;
+        }
 
         .left-content {
             width: 25%;
@@ -40,6 +60,15 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            @include desktop {
+                display: none;
+            }
+            @include tablet {
+                display: none;
+            }
+            @include mobile {
+                display: none;
+            }
 
             .child-content {
                 cursor: pointer;
@@ -60,11 +89,19 @@
             align-items: center;
             justify-content: flex-end;
 
+            @include mobile {
+                width: 50%;
+            }
+
             .support {
                 padding-right: 50px;
                 display: flex;
                 cursor: pointer;
                 align-items: center;
+                @include mobile {
+                    padding-right: 5px;
+                }
+
                 &:hover {
                     color: #67c9e0;
                 }
@@ -117,10 +154,20 @@
     background-position: center;
     display: flex;
     opacity: 0.9;
+    @include mobile {
+        display: block;
+        background-size: cover;
+    }
 
     .content-left {
         width: 50%;
         padding-top: 15px;
+        @include mobile {
+            width: 100%;
+        }
+        @include tablet {
+            width: 100%;
+        }
 
         .title1 {
             text-align: center;
@@ -146,6 +193,7 @@
             padding: 10px;
             border-radius: 25px;
             background: #5fb8e0;
+
             i {
                 margin: 0 5px;
             }
@@ -155,6 +203,9 @@
                 background: transparent;
                 border: none;
                 outline: none;
+                @include mobile {
+                    width: 260px;
+                }
             }
         }
 
@@ -179,5 +230,11 @@
 
     .content-right {
         width: 50%;
+        @include mobile {
+            width: 0%;
+        }
+        @include tablet {
+            width: 0%;
+        }
     }
 }

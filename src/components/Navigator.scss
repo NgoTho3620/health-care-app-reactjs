@@ -4,6 +4,13 @@
     display: flex;
     margin: 0;
     padding: 0;
+    @include mobile {
+        display: none;
+    }
+    @include tablet {
+        display: none;
+    }
+
     &.list-unstyled,
     .list-unstyled {
         list-style-type: none;

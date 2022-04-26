@@ -33,8 +33,8 @@ class HomeFooter extends Component {
                                 Công ty Cổ phần Dịch Vụ Y tế HealthCARE
                             </div>
                             <div className="address">
-                                <i class="fas fa-map-marker-alt"></i> 241 Xuân Thủy, Dịch Vọng Hậu,
-                                Cầu Giấy, Hà Nội
+                                <i className="fas fa-map-marker-alt"></i> 241 Xuân Thủy, Dịch Vọng
+                                Hậu, Cầu Giấy, Hà Nội
                             </div>
                             <div className="certification">
                                 <img
@@ -82,8 +82,8 @@ class HomeFooter extends Component {
                         <p>&copy; 2022 HealthCARE</p>
                     </div>
                     <div className="social">
-                        <i class="fab fa-facebook-square"></i>
-                        <i class="fab fa-youtube"></i>
+                        <i className="fab fa-facebook-square"></i>
+                        <i className="fab fa-youtube"></i>
                     </div>
                 </div>
             </>

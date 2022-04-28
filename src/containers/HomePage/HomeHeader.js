@@ -6,11 +6,23 @@ import { FormattedMessage } from 'react-intl';
 import { LANGUAGES } from '../../utils';
 import { changeLanguageApp } from '../../store/actions';
 import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
 
 class HomeHeader extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isShowNavbar: false,
+        };
+    }
+
     changeLanguage = (language) => {
         //fire redux event
         this.props.changeLanguageAppRedux(language);
+    };
+
+    handleShowHideNavbar = () => {
+        this.setState({ isShowNavbar: !this.state.isShowNavbar });
     };
 
     returnToHome = () => {
@@ -19,20 +31,100 @@ class HomeHeader extends Component {
         }
     };
 
+    handleViewListHandbook = () => {
+        this.props.history.push(`/list-handbook`);
+    };
+
+    handleViewListSpecialty = () => {
+        this.props.history.push(`/list-specialty`);
+    };
+
+    handleViewListClinic = () => {
+        this.props.history.push(`/list-clinic`);
+    };
+
     render() {
+        let { isShowNavbar } = this.state;
         let language = this.props.language;
         return (
             <React.Fragment>
+                <div className={isShowNavbar ? 'right-navbar' : 'right-navbar hide'}>
+                    <div className="navbar-content">
+                        <div className="navbar-close" onClick={() => this.handleShowHideNavbar()}>
+                            <i className="fas fa-times"></i>
+                        </div>
+                        <ul>
+                            <li>
+                                <Link
+                                    className="navbar-link"
+                                    to=""
+                                    onClick={() => this.returnToHome()}
+                                >
+                                    <FormattedMessage id="homeheader.home" />
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    className="navbar-link"
+                                    to=""
+                                    onClick={() => this.handleViewListHandbook()}
+                                >
+                                    <FormattedMessage id="homepage.list-handbook" />
+                                </Link>
+                            </li>
+                            <li>
+                                <Link className="navbar-link" to="">
+                                    <FormattedMessage id="homeheader.contact" />
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    className="navbar-link"
+                                    to=""
+                                    onClick={() => this.handleViewListSpecialty()}
+                                >
+                                    <FormattedMessage id="homeheader.specialty" />
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    className="navbar-link"
+                                    to=""
+                                    onClick={() => this.handleViewListClinic()}
+                                >
+                                    <FormattedMessage id="homeheader.health-facility" />
+                                </Link>
+                            </li>
+                            <li>
+                                <Link className="navbar-link" to="">
+                                    <FormattedMessage id="homeheader.doctor" />
+                                </Link>
+                            </li>
+                            <li>
+                                <Link className="navbar-link" to="">
+                                    <FormattedMessage id="homeheader.fee" />
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+                    <div onClick={() => this.handleShowHideNavbar()} className="overlay"></div>
+                </div>
                 <div className="home-header-container">
                     <div className="home-header-content">
                         <div className="left-content">
-                            <i className="fas fa-bars"></i>
+                            <i
+                                onClick={() => this.handleShowHideNavbar()}
+                                className="fas fa-bars"
+                            ></i>
                             <div className="header-logo">
                                 <img src={img} alt="" onClick={() => this.returnToHome()} />
                             </div>
                         </div>
                         <div className="center-content">
-                            <div className="child-content">
+                            <div
+                                className="child-content"
+                                onClick={() => this.handleViewListSpecialty()}
+                            >
                                 <div>
                                     <b>
                                         <FormattedMessage id="homeheader.specialty" />
@@ -42,7 +134,10 @@ class HomeHeader extends Component {
                                     <FormattedMessage id="homeheader.search-doctor" />
                                 </div>
                             </div>
-                            <div className="child-content">
+                            <div
+                                className="child-content"
+                                onClick={() => this.handleViewListClinic()}
+                            >
                                 <div>
                                     <b>
                                         <FormattedMessage id="homeheader.health-facility" />
@@ -106,7 +201,7 @@ class HomeHeader extends Component {
                             </div>
                             <div className="search">
                                 <i className="fas fa-search"></i>
-                                <input type="text" placeholder="Tìm chuyên khoa khám bệnh" />
+                                <input type="text" placeholder="Tìm bác sĩ, chuyên khoa,..." />
                             </div>
                             <button>
                                 <FormattedMessage id="banner.booking" />

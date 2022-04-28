@@ -25,6 +25,10 @@ class Handbook extends Component {
         this.props.history.push(`/detail-handbook/${handbook.id}`);
     };
 
+    handleViewListHandbook = (handbook) => {
+        this.props.history.push(`/list-handbook`);
+    };
+
     render() {
         let { dataHandbook } = this.state;
         return (
@@ -34,7 +38,10 @@ class Handbook extends Component {
                         <span className="title-section">
                             <FormattedMessage id="homepage.handbook" />
                         </span>
-                        <button className="btn-section">
+                        <button
+                            className="btn-section"
+                            onClick={() => this.handleViewListHandbook()}
+                        >
                             <FormattedMessage id="homepage.more-info" />
                         </button>
                     </div>

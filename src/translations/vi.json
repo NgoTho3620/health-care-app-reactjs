@@ -1,5 +1,6 @@
 {
     "homeheader": {
+        "home": "Trang chủ",
         "specialty": "Chuyên khoa",
         "search-doctor": "Tìm bác sĩ theo chuyên khoa",
         "health-facility": "Cơ sở y tế",
@@ -9,7 +10,8 @@
         "fee": "Gói khám",
         "check-health": "Khám sức khỏe tổng quát",
         "support": "Hỗ trợ",
-        "welcome": "Xin chào"
+        "welcome": "Xin chào",
+        "contact": "Liên hệ hợp tác"
     },
     "banner": {
         "title1": "NỀN TẢNG Y TẾ",
@@ -81,7 +83,10 @@
         "search": "Tìm kiếm",
         "specialty-popular": "Chuyên khoa phổ biến",
         "clinic-salient": "Cơ sở y tế nổi bật",
-        "handbook": "Cẩm nang"
+        "handbook": "Cẩm nang",
+        "list-clinic": "Cơ sở y tế",
+        "list-specialty": "Danh mục chuyên khoa",
+        "list-handbook": "Danh mục cẩm nang"
     },
     "manage-schedule": {
         "title": "Quản lý kế hoạch khám bệnh của bác sĩ",

@@ -1,5 +1,58 @@
 @import '../../styles/common.scss';
 
+.right-navbar {
+    .navbar-content {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 300px;
+        max-width: 100%;
+        background-color: #fff;
+        z-index: 999999;
+
+        .navbar-close {
+            color: #333;
+            font-size: 1.3rem;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            cursor: pointer;
+        }
+
+        ul {
+            margin: 24px 0 0 12px;
+            list-style: none;
+            padding: 0;
+
+            .navbar-link {
+                text-decoration: none;
+                color: #45c3d2;
+                display: block;
+                padding: 8px 0;
+                font-size: 1.2rem;
+                border-bottom: 1px solid #eee;
+
+                &:hover {
+                    color: #f15b5a;
+                }
+            }
+        }
+    }
+    .overlay {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.3);
+        z-index: 99999;
+    }
+    &.hide {
+        display: none;
+    }
+}
+
 .home-header-container {
     height: 60px;
     width: 100%;

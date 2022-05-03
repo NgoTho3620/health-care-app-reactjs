@@ -53,7 +53,9 @@
             "specialty": "Chuyên khoa",
             "manage-specialty": "Quản lý chuyên khoa",
             "handbook": "Cẩm nang",
-            "manage-handbook": "Quản lý cẩm nang"
+            "manage-handbook": "Quản lý cẩm nang",
+            "charts": "Báo cáo",
+            "manage-charts": "Quản lí biểu đồ báo cáo"
         },
         "doctor": {
             "add-info-doctor": "Thêm thông tin bác sĩ",

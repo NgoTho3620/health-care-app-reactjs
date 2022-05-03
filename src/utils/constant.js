@@ -12,6 +12,7 @@ export const path = {
     LIST_SPECIALTY: '/list-specialty',
     LIST_CLINIC: '/list-clinic',
     LIST_HANDBOOK: '/list-handbook',
+    LIST_DOCTOR: '/list-doctor',
 };
 
 export const LANGUAGES = {

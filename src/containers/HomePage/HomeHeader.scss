@@ -24,6 +24,7 @@
             margin: 24px 0 0 12px;
             list-style: none;
             padding: 0;
+            cursor: pointer;
 
             .navbar-link {
                 text-decoration: none;
@@ -32,6 +33,7 @@
                 padding: 8px 0;
                 font-size: 1.2rem;
                 border-bottom: 1px solid #eee;
+                font-weight: normal;
 
                 &:hover {
                     color: #f15b5a;

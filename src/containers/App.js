@@ -21,6 +21,7 @@ import DetailHandbook from './Patient/Handbook/DetailHandbook';
 import ListSpecialty from './Patient/Specialty/ListSpecialty';
 import ListClinic from './Patient/Clinic/ListClinic';
 import ListHandbook from './Patient/Handbook/ListHandbook';
+import ListDoctor from './Patient/Doctor/ListDoctor';
 
 class App extends Component {
     handlePersistorState = () => {
@@ -77,6 +78,7 @@ class App extends Component {
                                     <Route path={path.LIST_SPECIALTY} component={ListSpecialty} />
                                     <Route path={path.LIST_CLINIC} component={ListClinic} />
                                     <Route path={path.LIST_HANDBOOK} component={ListHandbook} />
+                                    <Route path={path.LIST_DOCTOR} component={ListDoctor} />
                                 </Switch>
                             </CustomScrollbars>
                         </div>

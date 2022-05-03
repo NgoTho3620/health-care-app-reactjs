@@ -6,7 +6,7 @@ import { FormattedMessage } from 'react-intl';
 import { LANGUAGES } from '../../utils';
 import { changeLanguageApp } from '../../store/actions';
 import { withRouter } from 'react-router';
-import { Link } from 'react-router-dom';
+import Select from 'react-select';
 
 class HomeHeader extends Component {
     constructor(props) {
@@ -32,15 +32,27 @@ class HomeHeader extends Component {
     };
 
     handleViewListHandbook = () => {
-        this.props.history.push(`/list-handbook`);
+        if (this.props.history) {
+            this.props.history.push(`/list-handbook`);
+        }
     };
 
     handleViewListSpecialty = () => {
-        this.props.history.push(`/list-specialty`);
+        if (this.props.history) {
+            this.props.history.push(`/list-specialty`);
+        }
     };
 
     handleViewListClinic = () => {
-        this.props.history.push(`/list-clinic`);
+        if (this.props.history) {
+            this.props.history.push(`/list-clinic`);
+        }
+    };
+
+    handleViewListDoctor = () => {
+        if (this.props.history) {
+            this.props.history.push(`/list-doctor`);
+        }
     };
 
     render() {
@@ -55,55 +67,59 @@ class HomeHeader extends Component {
                         </div>
                         <ul>
                             <li>
-                                <Link
+                                <b
                                     className="navbar-link"
                                     to=""
                                     onClick={() => this.returnToHome()}
                                 >
                                     <FormattedMessage id="homeheader.home" />
-                                </Link>
+                                </b>
                             </li>
                             <li>
-                                <Link
+                                <b
                                     className="navbar-link"
                                     to=""
                                     onClick={() => this.handleViewListHandbook()}
                                 >
                                     <FormattedMessage id="homepage.list-handbook" />
-                                </Link>
+                                </b>
                             </li>
                             <li>
-                                <Link className="navbar-link" to="">
+                                <b className="navbar-link" to="">
                                     <FormattedMessage id="homeheader.contact" />
-                                </Link>
+                                </b>
                             </li>
                             <li>
-                                <Link
+                                <b
                                     className="navbar-link"
                                     to=""
                                     onClick={() => this.handleViewListSpecialty()}
                                 >
                                     <FormattedMessage id="homeheader.specialty" />
-                                </Link>
+                                </b>
                             </li>
                             <li>
-                                <Link
+                                <b
                                     className="navbar-link"
                                     to=""
                                     onClick={() => this.handleViewListClinic()}
                                 >
                                     <FormattedMessage id="homeheader.health-facility" />
-                                </Link>
+                                </b>
                             </li>
                             <li>
-                                <Link className="navbar-link" to="">
+                                <b
+                                    className="navbar-link"
+                                    to=""
+                                    onClick={() => this.handleViewListDoctor()}
+                                >
                                     <FormattedMessage id="homeheader.doctor" />
-                                </Link>
+                                </b>
                             </li>
                             <li>
-                                <Link className="navbar-link" to="">
+                                <b className="navbar-link" to="">
                                     <FormattedMessage id="homeheader.fee" />
-                                </Link>
+                                </b>
                             </li>
                         </ul>
                     </div>

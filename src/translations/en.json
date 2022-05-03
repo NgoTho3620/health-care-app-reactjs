@@ -54,7 +54,9 @@
             "specialty": "Specialties",
             "manage-specialty": "Manage Specialties",
             "handbook": "Handbook",
-            "manage-handbook": "Manage handbook"
+            "manage-handbook": "Manage handbook",
+            "charts": "Charts Report",
+            "manage-charts": "Manage charts"
         },
         "doctor": {
             "add-info-doctor": "Thêm thông tin bác sĩ",

@@ -74,6 +74,16 @@ export const adminMenu = [
             },
         ],
     },
+    {
+        //quản lý biểu đồ
+        name: 'menu.admin.charts',
+        menus: [
+            {
+                name: 'menu.admin.manage-charts',
+                link: '/system/manage-chart',
+            },
+        ],
+    },
 ];
 
 export const doctorMenu = [

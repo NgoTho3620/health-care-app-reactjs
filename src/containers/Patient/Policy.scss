@@ -1,5 +1,17 @@
+@import '../../styles/common.scss';
+
 .policy-container {
     padding: 0 250px;
     padding-top: 10px;
     width: 100%;
+
+    @include mobile {
+        padding: 0 5px;
+    }
+    @include tablet {
+        padding: 0 30px;
+    }
+    @include desktop {
+        padding: 0 80px;
+    }
 }

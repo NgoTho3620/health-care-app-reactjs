@@ -61,11 +61,21 @@
                 }
                 li {
                     list-style: none;
-                    color: #45c3d2;
+
                     cursor: pointer;
                     margin-bottom: 5px;
-                    &:hover {
-                        color: #f15b5a;
+                    .footer-link {
+                        text-decoration: none;
+                        color: #45c3d2;
+                        display: block;
+                        font-size: 1.2rem;
+                        border-bottom: 1px solid #eee;
+                        font-weight: normal;
+                        font-size: 1rem;
+
+                        &:hover {
+                            color: #f15b5a;
+                        }
                     }
                 }
             }

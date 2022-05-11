@@ -55,6 +55,12 @@ class HomeHeader extends Component {
         }
     };
 
+    handleViewPolicy = () => {
+        if (this.props.history) {
+            this.props.history.push(`/policy`);
+        }
+    };
+
     render() {
         let { isShowNavbar } = this.state;
         let language = this.props.language;
@@ -85,7 +91,11 @@ class HomeHeader extends Component {
                                 </b>
                             </li>
                             <li>
-                                <b className="navbar-link" to="">
+                                <b
+                                    className="navbar-link"
+                                    to=""
+                                    onClick={() => this.handleViewPolicy()}
+                                >
                                     <FormattedMessage id="homeheader.contact" />
                                 </b>
                             </li>
@@ -163,7 +173,10 @@ class HomeHeader extends Component {
                                     <FormattedMessage id="homeheader.select-room" />
                                 </div>
                             </div>
-                            <div className="child-content">
+                            <div
+                                className="child-content"
+                                onClick={() => this.handleViewListDoctor()}
+                            >
                                 <div>
                                     <b>
                                         <FormattedMessage id="homeheader.doctor" />
@@ -185,7 +198,7 @@ class HomeHeader extends Component {
                             </div>
                         </div>
                         <div className="right-content">
-                            <div className="support">
+                            <div className="support" onClick={() => this.handleViewPolicy()}>
                                 <i className="fas fa-question-circle"></i>{' '}
                                 <FormattedMessage id="homeheader.support" />
                             </div>

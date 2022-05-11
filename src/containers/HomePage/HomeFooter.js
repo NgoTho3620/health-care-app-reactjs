@@ -12,6 +12,13 @@ class HomeFooter extends Component {
             this.props.history.push(`/home`);
         }
     };
+
+    handleViewPolicy = () => {
+        if (this.props.history) {
+            this.props.history.push(`/policy`);
+        }
+    };
+
     render() {
         return (
             <>
@@ -49,12 +56,54 @@ class HomeFooter extends Component {
                         </div>
                         <div className="center-footer">
                             <ul>
-                                <li>Liên hệ hợp tác</li>
-                                <li>Câu hỏi thường gặp</li>
-                                <li>Điều khoản sử dụng</li>
-                                <li>Chính sách bảo mật</li>
-                                <li>Quy chế hoạt động</li>
-                                <li>Quy chế giải quyết khiếu nại</li>
+                                <li>
+                                    <b
+                                        className="footer-link"
+                                        onClick={() => this.handleViewPolicy()}
+                                    >
+                                        Liên hệ hợp tác
+                                    </b>
+                                </li>
+                                <li>
+                                    <b
+                                        className="footer-link"
+                                        onClick={() => this.handleViewPolicy()}
+                                    >
+                                        Câu hỏi thường gặp
+                                    </b>
+                                </li>
+                                <li>
+                                    <b
+                                        className="footer-link"
+                                        onClick={() => this.handleViewPolicy()}
+                                    >
+                                        Điều khoản sử dụng
+                                    </b>
+                                </li>
+                                <li>
+                                    <b
+                                        className="footer-link"
+                                        onClick={() => this.handleViewPolicy()}
+                                    >
+                                        Chính sách bảo mật
+                                    </b>
+                                </li>
+                                <li>
+                                    <b
+                                        className="footer-link"
+                                        onClick={() => this.handleViewPolicy()}
+                                    >
+                                        Quy chế hoạt động
+                                    </b>
+                                </li>
+                                <li>
+                                    <b
+                                        className="footer-link"
+                                        onClick={() => this.handleViewPolicy()}
+                                    >
+                                        Quy chế giải quyết khiếu nại
+                                    </b>
+                                </li>
                             </ul>
                         </div>
                         <div className="right-footer">
